@@ -3,8 +3,6 @@ import nextMDX from "@next/mdx";
 import remarkGfm from "remark-gfm";
 import rehypePrism from "@mapbox/rehype-prism";
 
-const isProd = process.env.NODE_ENV === 'production';
-
 const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
@@ -40,9 +38,6 @@ const nextConfig = {
   experimental: {
     mdxRs: true,
   },
-  output: 'export',
-  basePath: '',
-  trailingSlash: true,
 };
 
 const withMDX = nextMDX({

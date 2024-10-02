@@ -3,7 +3,7 @@ import nextMDX from "@next/mdx";
 import remarkGfm from "remark-gfm";
 import rehypePrism from "@mapbox/rehype-prism";
 
-const isProd = process.env.NODE_ENV === 'production';
+const isProd = process.env.NODE_ENV === 'production'; // Checks if it's in production
 
 const nextConfig = {
   typescript: {
@@ -40,9 +40,10 @@ const nextConfig = {
   experimental: {
     mdxRs: true,
   },
-  output: 'export',
-  basePath: '',
-  trailingSlash: true,
+  // Added configuration for GitHub Pages
+  output: 'export', // Ensures the app is exported as static files
+  basePath: isProd ? '/<your-repository-name>' : '', // Adds basePath only in production
+  trailingSlash: true, // Ensures URLs have trailing slashes for GitHub Pages compatibility
 };
 
 const withMDX = nextMDX({

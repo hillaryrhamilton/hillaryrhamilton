@@ -41,7 +41,7 @@ const nextConfig = {
     mdxRs: true,
   },
   output: 'export',
-  basePath: '',
+  basePath: isProd ? '/hillaryrhamilton' : '',
   trailingSlash: true,
 };
 
