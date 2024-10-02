@@ -8,31 +8,28 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  # Use your preferred Node.js version
-          cache: 'pnpm'
+          node-version: '18'
 
       - name: Install pnpm
-        run: npm install -g pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
 
       - name: Install dependencies
         run: pnpm install
 
       - name: Build Next.js project
-        run: pnpm next build
-
-      - name: Export static site
-        run: pnpm next export
+        run: pnpm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out  # This is the default export directory
+          publish_dir: ./out
