@@ -65,7 +65,7 @@ jobs:
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Export Static Files
-        run: ${{ steps.detect-package-manager.outputs.runner }} next export -o ./out  # Ensure output directory is ./out
+        run: ${{ steps.detect-package-manager.outputs.runner }} next export --out ./out  # Corrected to use --out
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
