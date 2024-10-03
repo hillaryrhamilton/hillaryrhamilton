@@ -42,6 +42,7 @@ const nextConfig = {
   },
   output: 'export',
   basePath: '',
+  assetPrefix: isProd ? '/<hillaryrhamilton>' : '',
   trailingSlash: true,
 };
 
