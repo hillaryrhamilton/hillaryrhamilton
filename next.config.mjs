@@ -42,7 +42,7 @@ const nextConfig = {
   },
   output: 'export',
   basePath: '',
-  assetPrefix: isProd ? '/<hillaryrhamilton>' : '',
+  assetPrefix: isProd ? '/hillaryrhamilton' : '',
   trailingSlash: true,
 };
 
